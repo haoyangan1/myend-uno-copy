@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import FriendList from './components/FriendList/FriendList';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MainMenu from './components/MainMenu/MainMenu';
+import InGame from './components/InGame/InGame';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Main Menu with Friend List */}
+        <Route 
+          path="/" 
+          element={
+            <div className="main-menu-container">
+              <MainMenu />
+              <FriendList /> {/* Add FriendList here */}
+            </div>
+          } 
+        />
+        
+        <Route path="/play" element={<InGame />} /> {/* Changed path to /play */}
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
+

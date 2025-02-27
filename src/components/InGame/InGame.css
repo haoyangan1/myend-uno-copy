@@ -1,0 +1,93 @@
+.game-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #2c3e50;
+}
+
+.discard-pile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.players-circle {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.bot-player {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+}
+
+.bot-player:nth-child(1) { left: 10%; }
+.bot-player:nth-child(2) { left: 40%; }
+.bot-player:nth-child(3) { right: 10%; }
+
+
+.card {
+  width: 60px;
+  height: 90px;
+  border-radius: 8px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card.red { background: #e74c3c; color: white; }
+.card.blue { background: #3498db; color: white; }
+.card.green { background: #2ecc71; color: white; }
+.card.yellow { background: #f1c40f; color: black; }
+.card.wild { background: #2c3e50; color: white; }
+
+.card-back {
+  background: #34495e;
+}
+
+.game-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it's above cards */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.human-hand {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 500; /* Lower than controls */
+}
+
+/* In InGame.css */
+.game-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.skip-button {
+  background: #e74c3c;
+  margin-top: 10px;
+}
+
+.skip-button:hover {
+  background: #c0392b;
+}
